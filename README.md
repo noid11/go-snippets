@@ -9,6 +9,7 @@ My Go Snippets
 - [TOC](#toc)
 - [useful links](#useful-links)
 - [read values from stdin](#read-values-from-stdin)
+- [convert string to int](#convert-string-to-int)
 
 
 # useful links
@@ -45,4 +46,23 @@ hoge fuga
 hoge
 fuga
 hoge fuga
+```
+
+
+# convert string to int
+
+```go
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	s := "777"
+	i, _ := strconv.Atoi(s)
+	fmt.Printf("%T", i)
+}
+
 ```
