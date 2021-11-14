@@ -10,6 +10,7 @@ My Go Snippets
 - [useful links](#useful-links)
 - [read values from stdin](#read-values-from-stdin)
 - [convert string to int](#convert-string-to-int)
+- [convert int to string](#convert-int-to-string)
 
 
 # useful links
@@ -63,6 +64,25 @@ func main() {
 	s := "777"
 	i, _ := strconv.Atoi(s)
 	fmt.Printf("%T", i)
+}
+
+```
+
+
+# convert int to string
+
+```go
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func main() {
+	i := 777
+	s := strconv.Itoa(i)
+	fmt.Printf("%T", s)
 }
 
 ```
