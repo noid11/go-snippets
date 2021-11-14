@@ -14,6 +14,7 @@ My Go Snippets
 - [convert int to string](#convert-int-to-string)
 - [count characters in string](#count-characters-in-string)
 - [print current time](#print-current-time)
+- [generate random number](#generate-random-number)
 - [generate uuidv4](#generate-uuidv4)
 
 
@@ -155,6 +156,25 @@ import (
 
 func main() {
 	fmt.Println(time.Now())
+}
+
+```
+
+
+# generate random number
+
+```go
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+	fmt.Println(rand.Intn(10))
 }
 
 ```
