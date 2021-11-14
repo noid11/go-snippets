@@ -7,7 +7,15 @@ My Go Snippets
 
 - [go-snippets](#go-snippets)
 - [TOC](#toc)
+- [useful links](#useful-links)
 - [read values from stdin](#read-values-from-stdin)
+
+
+# useful links
+
+- https://play.golang.org/
+- https://pkg.go.dev/
+- https://github.com/golang/go
 
 
 # read values from stdin
