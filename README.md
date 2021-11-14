@@ -9,6 +9,7 @@ My Go Snippets
 - [TOC](#toc)
 - [useful links](#useful-links)
 - [read values from stdin](#read-values-from-stdin)
+- [read line from stdin](#read-line-from-stdin)
 - [convert string to int](#convert-string-to-int)
 - [convert int to string](#convert-int-to-string)
 - [count characters in string](#count-characters-in-string)
@@ -49,6 +50,39 @@ hoge fuga
 hoge
 fuga
 hoge fuga
+```
+
+
+# read line from stdin
+
+```go
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+func main() {
+	var s string
+	scanner := bufio.NewScanner(os.Stdin)
+
+	if scanner.Scan() {
+		s = scanner.Text()
+	}
+
+	fmt.Print(s)
+}
+
+```
+
+sample
+
+```bash
+% go run tmp.go
+hello world
+hello world
 ```
 
 
