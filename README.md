@@ -11,6 +11,7 @@ My Go Snippets
 - [read values from stdin](#read-values-from-stdin)
 - [convert string to int](#convert-string-to-int)
 - [convert int to string](#convert-int-to-string)
+- [count characters in string](#count-characters-in-string)
 - [generate uuidv4](#generate-uuidv4)
 
 
@@ -84,6 +85,24 @@ func main() {
 	i := 777
 	s := strconv.Itoa(i)
 	fmt.Printf("%T", s)
+}
+
+```
+
+
+# count characters in string
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	s := "hello world!"
+	fmt.Print(strings.Count(s, ""))
 }
 
 ```
