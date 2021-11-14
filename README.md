@@ -11,6 +11,7 @@ My Go Snippets
 - [read values from stdin](#read-values-from-stdin)
 - [convert string to int](#convert-string-to-int)
 - [convert int to string](#convert-int-to-string)
+- [generate uuidv4](#generate-uuidv4)
 
 
 # useful links
@@ -85,4 +86,22 @@ func main() {
 	fmt.Printf("%T", s)
 }
 
+```
+
+
+# generate uuidv4
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/google/uuid"
+)
+
+func main() {
+	uuidv4, _ := uuid.NewRandom()
+	fmt.Print(uuidv4)
+}
 ```
