@@ -13,6 +13,7 @@ My Go Snippets
 - [convert string to int](#convert-string-to-int)
 - [convert int to string](#convert-int-to-string)
 - [count characters in string](#count-characters-in-string)
+- [print current time](#print-current-time)
 - [generate uuidv4](#generate-uuidv4)
 
 
@@ -137,6 +138,23 @@ import (
 func main() {
 	s := "hello world!"
 	fmt.Print(strings.Count(s, ""))
+}
+
+```
+
+
+# print current time
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println(time.Now())
 }
 
 ```
