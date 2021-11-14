@@ -16,6 +16,7 @@ My Go Snippets
 - [print current time](#print-current-time)
 - [generate random number](#generate-random-number)
 - [generate uuidv4](#generate-uuidv4)
+- [call sts get-caller-identity with debug log using aws-sdk-go](#call-sts-get-caller-identity-with-debug-log-using-aws-sdk-go)
 
 
 # useful links
@@ -196,3 +197,38 @@ func main() {
 	fmt.Print(uuidv4)
 }
 ```
+
+
+# call sts get-caller-identity with debug log using aws-sdk-go
+
+```go
+package main
+
+import (
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/sts"
+
+	"fmt"
+)
+
+func main() {
+	sess, err := session.NewSession(&aws.Config{
+		Region:   aws.String("ap-northeast-1"),
+		LogLevel: aws.LogLevel(aws.LogDebug),
+	})
+
+	svc := sts.New(sess)
+	input := &sts.GetCallerIdentityInput{}
+
+	result, err := svc.GetCallerIdentity(input)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+
+	fmt.Println(result)
+}
+
+```
+
