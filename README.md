@@ -8,6 +8,7 @@ My Go Snippets
 - [go-snippets](#go-snippets)
 - [TOC](#toc)
 - [useful links](#useful-links)
+- [hello world](#hello-world)
 - [read values from stdin](#read-values-from-stdin)
 - [read line from stdin](#read-line-from-stdin)
 - [convert string to int](#convert-string-to-int)
@@ -24,6 +25,20 @@ My Go Snippets
 - https://play.golang.org/
 - https://pkg.go.dev/
 - https://github.com/golang/go
+
+
+# hello world
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World")
+}
+
+```
 
 
 # read values from stdin
