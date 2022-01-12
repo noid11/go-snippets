@@ -16,6 +16,7 @@ My Go Snippets
 - [count characters in string](#count-characters-in-string)
 - [print current time](#print-current-time)
 - [generate random number](#generate-random-number)
+- [reversing slice](#reversing-slice)
 - [generate uuidv4](#generate-uuidv4)
 - [call sts get-caller-identity with debug log using aws-sdk-go](#call-sts-get-caller-identity-with-debug-log-using-aws-sdk-go)
 
@@ -194,6 +195,28 @@ func main() {
 }
 
 ```
+
+
+# reversing slice
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	a := []int{1, 2, 3, 4, 5, 6}
+	fmt.Println(a) // [1 2 3 4 5 6]
+	for i := len(a)/2 - 1; i >= 0; i-- {
+		opp := len(a) - 1 - i
+		a[i], a[opp] = a[opp], a[i]
+	}
+	fmt.Println(a) // [6 5 4 3 2 1]
+}
+```
+
+SliceTricks · golang/go Wiki  
+https://github.com/golang/go/wiki/SliceTricks#reversing
 
 
 # generate uuidv4
