@@ -197,6 +197,7 @@ func main() {
 }
 ```
 
+
 # generate random number
 
 ```go
