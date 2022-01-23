@@ -15,6 +15,7 @@ My Go Snippets
 - [convert int to string](#convert-int-to-string)
 - [count characters in string](#count-characters-in-string)
 - [print current time](#print-current-time)
+- [max find from array or slice](#max-find-from-array-or-slice)
 - [generate random number](#generate-random-number)
 - [reversing slice](#reversing-slice)
 - [generate uuidv4](#generate-uuidv4)
@@ -177,6 +178,24 @@ func main() {
 
 ```
 
+
+# max find from array or slice
+
+```go
+func findMax(n ...int) int {
+	max := 0
+	for _, value := range n {
+		if value > max {
+			max = value
+		}
+	}
+	return max
+}
+
+func main() {
+	findMax(1, 3, 5)
+}
+```
 
 # generate random number
 
