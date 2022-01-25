@@ -27,6 +27,7 @@ My Go Snippets
 - https://play.golang.org/
 - https://pkg.go.dev/
 - https://github.com/golang/go
+- https://gobyexample.com/
 
 
 # hello world
