@@ -18,6 +18,7 @@ My Go Snippets
 - [max find from array or slice](#max-find-from-array-or-slice)
 - [generate random number](#generate-random-number)
 - [reversing slice](#reversing-slice)
+- [trim line feed](#trim-line-feed)
 - [generate uuidv4](#generate-uuidv4)
 - [call sts get-caller-identity with debug log using aws-sdk-go](#call-sts-get-caller-identity-with-debug-log-using-aws-sdk-go)
 
@@ -238,6 +239,27 @@ func main() {
 
 SliceTricks · golang/go Wiki  
 https://github.com/golang/go/wiki/SliceTricks#reversing
+
+
+# trim line feed
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	rawText := "Hello\nWorld!"
+	text := strings.ReplaceAll(rawText, "\n", " ")
+	fmt.Println(text)
+}
+```
+
+strings package - strings - pkg.go.dev  
+https://pkg.go.dev/strings#ReplaceAll
 
 
 # generate uuidv4
