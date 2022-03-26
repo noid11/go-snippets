@@ -19,6 +19,7 @@ My Go Snippets
 - [generate random number](#generate-random-number)
 - [reversing slice](#reversing-slice)
 - [trim line feed](#trim-line-feed)
+- [goroutine in for loop](#goroutine-in-for-loop)
 - [generate uuidv4](#generate-uuidv4)
 - [call sts get-caller-identity with debug log using aws-sdk-go](#call-sts-get-caller-identity-with-debug-log-using-aws-sdk-go)
 
@@ -260,6 +261,85 @@ func main() {
 
 strings package - strings - pkg.go.dev  
 https://pkg.go.dev/strings#ReplaceAll
+
+
+# goroutine in for loop
+
+bind local value
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	values := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	for _, value := range values {
+		i := value
+		go func() {
+			fmt.Println(i)
+		}()
+	}
+
+	time.Sleep(1 * time.Second)
+}
+```
+
+---
+
+args in anonymous function
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	values := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	for _, value := range values {
+		go func(i int) {
+			fmt.Println(i)
+		}(value)
+	}
+
+	time.Sleep(1 * time.Second)
+}
+```
+
+---
+
+isolate function
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	values := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	myFunc := func(i int) {
+		fmt.Println(i)
+	}
+
+	for _, value := range values {
+		go myFunc(value)
+	}
+
+	time.Sleep(1 * time.Second)
+}
+```
 
 
 # generate uuidv4
