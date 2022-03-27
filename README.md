@@ -19,6 +19,7 @@ My Go Snippets
 - [generate random number](#generate-random-number)
 - [reversing slice](#reversing-slice)
 - [trim line feed](#trim-line-feed)
+- [json encoding, decoding](#json-encoding-decoding)
 - [goroutine in for loop](#goroutine-in-for-loop)
 - [generate uuidv4](#generate-uuidv4)
 - [call sts get-caller-identity with debug log using aws-sdk-go](#call-sts-get-caller-identity-with-debug-log-using-aws-sdk-go)
@@ -261,6 +262,119 @@ func main() {
 
 strings package - strings - pkg.go.dev  
 https://pkg.go.dev/strings#ReplaceAll
+
+
+# json encoding, decoding
+
+Marshal encoding => struct to json
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+type ColorGroup struct {
+	ID     int
+	Name   string
+	Colors []string
+}
+
+func main() {
+	myGroup := ColorGroup{
+		ID:   1,
+		Name: "Reds",
+		Colors: []string{
+			"Crimson",
+			"Red",
+			"Ruby",
+			"Maroon",
+		},
+	}
+
+	bytes, err := json.Marshal(myGroup)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(string(bytes))
+}
+```
+
+---
+
+Unmarshal decoding => json to struct
+
+```go
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+type Response struct {
+	Page       int `json:"page"`
+	PerPage    int `json:"per_page"`
+	Total      int `json:"total"`
+	TotalPages int `json:"total_pages"`
+	Data       []struct {
+		ID        int    `json:"id"`
+		Email     string `json:"email"`
+		FirstName string `json:"first_name"`
+		LastName  string `json:"last_name"`
+		Avatar    string `json:"avatar"`
+	} `json:"data"`
+	Support struct {
+		URL  string `json:"url"`
+		Text string `json:"text"`
+	} `json:"support"`
+}
+
+func PrettyPrint(i interface{}) string {
+	s, _ := json.MarshalIndent(i, "", "\t")
+	return string(s)
+}
+
+func main() {
+
+	resp, err := http.Get("https://reqres.in/api/users?page=2")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body) // response body is []byte
+
+	var result Response
+	if err := json.Unmarshal(body, &result); err != nil { // Parse []byte to the go struct pointer
+		fmt.Println(err)
+	}
+
+	fmt.Println(PrettyPrint(result))
+	// fmt.Println(result)
+
+	// loop
+	// for _, data := range result.Data {
+	// 	fmt.Println(data.FirstName)
+	// }
+}
+```
+
+Reqres - A hosted REST-API ready to respond to your AJAX requests  
+https://reqres.in/
+
+json package - encoding/json - pkg.go.dev  
+https://pkg.go.dev/encoding/json
+
+JSON and Go - The Go Programming Language  
+https://go.dev/blog/json
+
+JSON-to-Go: Convert JSON to Go instantly  
+https://mholt.github.io/json-to-go/
 
 
 # goroutine in for loop
