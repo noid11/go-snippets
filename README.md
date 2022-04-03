@@ -14,6 +14,7 @@ My Go Snippets
 - [convert string to int](#convert-string-to-int)
 - [convert int to string](#convert-int-to-string)
 - [count characters in string](#count-characters-in-string)
+- [index character in string](#index-character-in-string)
 - [print current time](#print-current-time)
 - [max find from array or slice](#max-find-from-array-or-slice)
 - [generate random number](#generate-random-number)
@@ -165,6 +166,29 @@ func main() {
 
 ```
 
+
+# index character in string
+
+go - How to index characters in a Golang string? - Stack Overflow  
+https://stackoverflow.com/questions/15018545/how-to-index-characters-in-a-golang-string
+
+Strings, bytes, runes and characters in Go - The Go Programming Language  
+https://go.dev/blog/strings
+
+The Go Programming Language Specification - The Go Programming Language  
+https://go.dev/ref/spec#Conversions
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println(string("Hello"[1]))             // ASCII only
+	fmt.Println(string([]rune("Hello, 世界")[1])) // UTF-8
+	fmt.Println(string([]rune("Hello, 世界")[8])) // UTF-8
+}
+```
 
 # print current time
 
