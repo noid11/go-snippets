@@ -15,6 +15,7 @@ My Go Snippets
 - [convert int to string](#convert-int-to-string)
 - [count characters in string](#count-characters-in-string)
 - [index character in string](#index-character-in-string)
+- [reverse string](#reverse-string)
 - [print current time](#print-current-time)
 - [max find from array or slice](#max-find-from-array-or-slice)
 - [generate random number](#generate-random-number)
@@ -189,6 +190,31 @@ func main() {
 	fmt.Println(string([]rune("Hello, 世界")[8])) // UTF-8
 }
 ```
+
+
+# reverse string
+
+How to reverse a string in Go? - Stack Overflow  
+https://stackoverflow.com/questions/1752414/how-to-reverse-a-string-in-go
+
+```go
+package main
+
+import "fmt"
+
+func Reverse(s string) string {
+	runes := []rune(s)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	return string(runes)
+}
+
+func main() {
+	fmt.Println(Reverse("Hello"))
+}
+```
+
 
 # print current time
 
